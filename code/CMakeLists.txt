@@ -1181,7 +1181,8 @@ IF (ASSIMP_BUILD_DRACO)
   ADD_DEFINITIONS( -DASSIMP_ENABLE_DRACO )
 ENDIF()
 
-ADD_LIBRARY( assimp ${assimp_src} )
+list(APPEND TEST_TARGETS assimp)
+llvm_test_library( assimp ${assimp_src} )
 ADD_LIBRARY(assimp::assimp ALIAS assimp)
 
 # Add or remove dllexport tags depending on the library type.

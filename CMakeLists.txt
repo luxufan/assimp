@@ -59,6 +59,11 @@ PROJECT(Assimp VERSION 5.3.0)
 
 # All supported options ###############################################
 
+file(COPY lit.local.cfg DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+file(COPY libassimp.so.test DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
+set(CMAKE_BINARY_DIR "${CMAKE_BINARY_DIR}/DynCastOPT/assimp")
+set(CMAKE_SOURCE_DIR "${CMAKE_SOURCE_DIR}/DynCastOPT/assimp")
 OPTION( BUILD_SHARED_LIBS
   "Build package with shared libraries."
   ON
